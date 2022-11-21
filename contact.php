@@ -15,7 +15,10 @@
     <?php require 'master.php'; ?>
     <div class="container text-center">
         <h1>Welcome to the Contact page</h1>
-    </div>
-    <?php require_once 'footer.php'; ?>
+        <p>To reach billing please use the number provided to you. (We cannot post the actual number here as it is against policy.)</p>
+        <p>Please note: If we do not answer the phone that we are only taking cash at this time.</p>
+        <p>If you wish to pay in cash please contact headmaster Guido by placing a note under the third stone from the entry.</p>
+        <p>To reach registration please call (939) 668-2279. (This may be on your documentation as (WED) ONT-CARE.)</p>
+     </div>
 </body>
 </html>

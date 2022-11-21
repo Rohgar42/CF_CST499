@@ -24,7 +24,7 @@
 <body>
 <div class="jumbotron">
     <div class="container text-center">
-        <h1>My Website</h1>
+        <h1>Apple π University</h1>
     </div>
 </div>
 <nav class="navbar navbar-inverse">

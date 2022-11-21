@@ -15,6 +15,8 @@
     <?php require 'master.php'; ?>
     <div class="container text-center">
         <h1>Welcome to the About page</h1>
+        <p>Apple π University is here to educate young brains and to empty the pockets of their parents.</p>
+        <p>This is the cheepest university in the USA to get your degree from.</p>
     </div>
     <?php require_once 'footer.php'; ?>
 </body>

@@ -23,9 +23,9 @@
 <div class="container text-center">
     <?php
     if (isset($_SESSION['username'])) {
-        echo('<h1>Welcome to the Employee Portal '.$_SESSION['username'].'</h1>');
+        echo('<h1>Welcome to the Student Portal '.$_SESSION['username'].'</h1>');
     } else {
-        echo('<h1>Welcome to the Employee Portal Home Page.</h1>');
+        echo('<h1>Welcome to the Student Portal Home Page.</h1>');
     }
     ?>
 </div>
