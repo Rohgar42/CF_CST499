@@ -14,7 +14,7 @@ error_reporting(E_ALL ^ E_NOTICE);
     <div class="navbar-fixed-bottom row-fluid">
         <div class="navbar-inner">
             <div class="container text-center">
-                Copyright @ 2021
+                Copyright @ 2022
             </div>
         </div>
     </div>

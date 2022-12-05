@@ -5,7 +5,7 @@ class Database
 
     public function connectToDb() {
       try {
-        $connectionString = "mysql:host=localhost;dbname=employee_portal";
+        $connectionString = "mysql:host=localhost;dbname=studentportal";
         $user = "test_tester";
         $pass = "password1";
         $pdo = new PDO($connectionString, $user, $pass);

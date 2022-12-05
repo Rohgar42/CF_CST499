@@ -38,20 +38,22 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="about.php"><span class="glyphicon glyphicon-exclamation-sign"></span> AboutUs</a></li>
-                <li><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> ContactUs</a></li>
+                <li id="index"><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li id="AboutUs"><a href="about.php"><span class="glyphicon glyphicon-exclamation-sign"></span> AboutUs</a></li>
+                <li id="ContactUs"><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> ContactUs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php
                     // ini_set('session.use_only_cookies','1');
                     // session_start();
                     if (isset($_SESSION['username'])) {
-                        echo('<li><a href="profile.php"><span class="glyphicon glyphicon-briefcase"></span> Profile</a></li>');
-                        echo('<li><a href="index.php?Logout=1"><span class="glyphicon glyphicon-off"></span> Logout</a></li>');
+                        echo('<li id="Enroll"><a href="enroll.php"><span class="glyphicon glyphicon-education"></span> Enroll</a></li>');
+                        echo('<li id="Profile"><a href="profile.php"><span class="glyphicon glyphicon-briefcase"></span> Profile</a></li>');
+                        echo('<li id="Logout"><a href="index.php?Logout=1"><span class="glyphicon glyphicon-off"></span> Logout</a></li>');
+
                     } else {
-                        echo('<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>');
-                        echo('<li><a href="registration.php"><span class="glyphicon glyphicon-pencil"></span> Registration</a></li>');
+                        echo('<li id="Login"><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>');
+                        echo('<li id="Registration"><a href="registration.php"><span class="glyphicon glyphicon-pencil"></span> Registration</a></li>');
                     }
                 ?>
             </ul>

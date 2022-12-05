@@ -19,17 +19,12 @@
         $sql = "SELECT * FROM tbluser WHERE email = :user_email";
         $params = [':user_email' => $_POST['email']];
         $results = $db->executeSelectQuery($con, $sql, $params);
-//echo("<pre>Result:");
-//print_r($results);
-//echo("</pre><br>");
         if ($_POST['password'] == $results[0]['password']) {
           $successMsg = "Login Successfil";
           $_SESSION = $results[0];
           $_SESSION['username'] = $results[0]['firstName'];
+          $_SESSION['id'] = $results[0]['id'];
           header('Refresh: 0; URL=index.php');
-// echo("<pre>Session:");
-// print_r($_SESSION);
-// echo("</pre><br>");
         } else {
           $errMsg = "Invalid email or password entered.";
         }
@@ -67,4 +62,5 @@
           </div>
       </div>
   </div>
+  <script type="text/javascript">document.getElementById("Login").className="active";</script>
 </html>

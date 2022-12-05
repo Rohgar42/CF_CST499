@@ -17,19 +17,49 @@
 <body>
     <?php
       require 'master.php';
-      if ($_POST['user_pwd'] == $_POST['password_confirmation']) {
-        $sql = "INSERT INTO tbluser (firstName, lastName, address, phone, ssn, salary, email, password) VALUES (?,?,?,?,?,?,?,?)";
+//
+// echo("<pre>");
+// print_r($_POST);
+// echo("</pre><br/>");
+// exit(0);
+
+      if ($_POST['user_password'] === $_POST['user_password_confirm']) {
+
+        $sql = "INSERT INTO tbluser (firstName, lastName, streetAddr, city, state, zipcode, email, homephone, cellphone, ssn, password, role, notifyFlag)
+                  VALUES (:firstName, :lastName, :streetAddress, :city, :state, :zipcode, :email, :homephone, :cellphone, :ssn, :password, :role, :notifyFlag)";
         $params = [
-          $_POST['user_l_name'],
-          $_POST['user_address'],
-          $_POST['user_f_name'],
-          $_POST['user_phone'],
-          $_POST['user_ssn'],
-          $_POST['user_salary'],
-          $_POST['user_email'],
-          $_POST['user_pwd']
+            ':firstName' => $_POST['user_f_name'],
+            ':lastName' => $_POST['user_l_name'],
+
+            ':streetAddress' => $_POST['user_address'],
+            ':city' => $_POST['user_city'],
+            ':state' => $_POST['user_state'],
+            ':zipcode' => $_POST['user_zipcode'],
+
+            ':email' => $_POST['user_email'],
+            ':homephone' => $_POST['user_homephone'],
+            ':cellphone' => $_POST['user_cellphone'],
+            ':ssn' => $_POST['user_ssn'],
+
+            ':password' => $_POST['user_password'],
+            ':role' => 0,
+            ':notifyFlag' => 0
+
         ];
-        $result = $db->executeQuery($con, $sql, $params);
+        // echo("<pre>");
+        // print_r($params);
+        // echo("</pre><br/>");
+        // exit(0);
+        try {
+            //$db = static::connectToPdo();
+            //$result = Database::executeQuery($db, $sql, $params);
+            $result = $db->executeQuery($con, $sql, $params);
+        } catch (PDOException $e) {
+            //$errors[] = "ERROR: " . $e->getMessage() . " (" . $e->getCode() . ")";
+            echo "ERROR : " . $e->getMessage() . " (" . $e->getCode() . ")<br>";
+//            return false;
+        }
+//
     } else {
       $result = false;
     }
@@ -49,13 +79,15 @@
         <input type="hidden" name="user_f_name" value="<?php echo($_POST['user_f_name']); ?>">
         <input type="hidden" name="user_l_name" value="<?php echo($_POST['user_l_name']); ?>">
         <input type="hidden" name="user_address" value="<?php echo($_POST['user_address']); ?>">
-        <input type="hidden" name="user_phone" value="<?php echo($_POST['user_phone']); ?>">
-        <input type="hidden" name="user_ssn" value="<?php echo($_POST['user_ssn']); ?>">
-        <input type="hidden" name="user_salary" value="<?php echo($_POST['user_salary']); ?>">
+        <input type="hidden" name="user_city" value="<?php echo($_POST['user_city']); ?>">
+        <input type="hidden" name="user_state" value="<?php echo($_POST['user_state']); ?>">
+        <input type="hidden" name="user_zipcode" value="<?php echo($_POST['user_zipcode']); ?>">
         <input type="hidden" name="user_email" value="<?php echo($_POST['user_email']); ?>">
+        <input type="hidden" name="user_homephone" value="<?php echo($_POST['user_homephone']); ?>">
+        <input type="hidden" name="user_cellphone" value="<?php echo($_POST['user_cellphone']); ?>">
+        <input type="hidden" name="user_ssn" value="<?php echo($_POST['user_ssn']); ?>">
         <!-- password should be passed back blank -->
-        <input type="hidden" name="user_pwd" value="<?php echo($_POST['']); ?>">
-
+        <input type="hidden" name="user_password" value="<?php echo($_POST['']); ?>">
         <input type="submit" value="Continue">
       </form>
     </div>

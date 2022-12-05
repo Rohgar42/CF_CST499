@@ -20,4 +20,5 @@
     </div>
     <?php require_once 'footer.php'; ?>
 </body>
+<script type="text/javascript">document.getElementById("AboutUs").className="active";</script>
 </html>

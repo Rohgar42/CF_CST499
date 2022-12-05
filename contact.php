@@ -21,4 +21,5 @@
         <p>To reach registration please call (939) 668-2279. (This may be on your documentation as (WED) ONT-CARE.)</p>
      </div>
 </body>
+<script type="text/javascript">document.getElementById("ContactUs").className="active";</script>
 </html>

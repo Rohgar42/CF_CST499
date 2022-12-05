@@ -1,9 +1,11 @@
 <?php
     error_reporting(E_ALL ^ E_NOTICE);
+    isset($_SESSION) ? null : session_start();
     if ((isset($_GET['Logout'])) && ($_GET['Logout'] == 1)) {
-    session_start();
-    session_destroy();
-}
+      $_SESSION = "";
+      $_POST = "";
+      session_destroy();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,9 @@
     if (isset($_SESSION['username'])) {
         echo('<h1>Welcome to the Student Portal '.$_SESSION['username'].'</h1>');
     } else {
-        echo('<h1>Welcome to the Student Portal Home Page.</h1>');
+        echo('<h1>Welcome to the Student Portal Home Page.</h1>
+              <p>To log in, please click the Login link in the menu above. </p>
+              <p>If you don`t have a login? Click the Registration link in the menu above.</p>');
     }
     ?>
 </div>
@@ -33,4 +37,5 @@
 <?php require_once 'footer.php'; ?>
 
 </body>
+<script type="text/javascript">document.getElementById("index").className="active";</script>
 </html>
